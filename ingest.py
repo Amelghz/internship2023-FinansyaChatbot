@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+# Import necessary modules
 import os
 import glob
 from typing import List
 from dotenv import load_dotenv
 from multiprocessing import Pool
 from tqdm import tqdm
-
+# Import components from my project's modules
 from langchain.document_loaders import (
     CSVLoader,
     EverNoteLoader,
@@ -26,7 +27,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 from constants import CHROMA_SETTINGS
 
-
+# Load environment variables from .env file
 load_dotenv()
 
 
@@ -80,7 +81,7 @@ LOADER_MAPPING = {
     # Add more mappings for other file extensions and loaders as needed
 }
 
-
+# Load a single document using the appropriate loader based on the file extension
 def load_single_document(file_path: str) -> List[Document]:
     ext = "." + file_path.rsplit(".", 1)[-1]
     if ext in LOADER_MAPPING:
@@ -90,6 +91,7 @@ def load_single_document(file_path: str) -> List[Document]:
 
     raise ValueError(f"Unsupported file extension '{ext}'")
 
+# Load documents from the source directory using multiple processes
 def load_documents(source_dir: str, ignored_files: List[str] = []) -> List[Document]:
     """
     Loads all documents from the source documents directory, ignoring specified files
@@ -109,7 +111,7 @@ def load_documents(source_dir: str, ignored_files: List[str] = []) -> List[Docum
                 pbar.update()
 
     return results
-
+# Split and process documents
 def process_documents(ignored_files: List[str] = []) -> List[Document]:
     """
     Load documents and split in chunks
@@ -125,6 +127,8 @@ def process_documents(ignored_files: List[str] = []) -> List[Document]:
     print(f"Split into {len(texts)} chunks of text (max. {chunk_size} tokens each)")
     return texts
 
+
+# Check if the vectorstore exists
 def does_vectorstore_exist(persist_directory: str) -> bool:
     """
     Checks if vectorstore exists
@@ -138,10 +142,12 @@ def does_vectorstore_exist(persist_directory: str) -> bool:
                 return True
     return False
 
-def main():
-    # Create embeddings
-    embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
 
+# Main function
+def main():
+    # Create embeddings using Hugging Face model
+    embeddings = HuggingFaceEmbeddings(model_name=embeddings_model_name)
+    # Check if a vectorstore exists, and update or create it accordingly
     if does_vectorstore_exist(persist_directory):
         # Update and store locally vectorstore
         print(f"Appending to existing vectorstore at {persist_directory}")
@@ -156,11 +162,13 @@ def main():
         texts = process_documents()
         print(f"Creating embeddings. May take some minutes...")
         db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory, client_settings=CHROMA_SETTINGS)
+    
+    # Persist the vectorstore
     db.persist()
     db = None
-
+    # Print completion message
     print(f"Ingestion complete! You can now run privateGPT.py to query your documents")
 
-
+# Execute the main function when the script is run directly
 if __name__ == "__main__":
     main()

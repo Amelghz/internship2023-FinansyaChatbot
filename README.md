@@ -3,6 +3,8 @@ Posez des questions à vos documents sans connexion Internet, en utilisant la pu
 
 Construit avec LangChain, GPT4All, LlamaCpp, Chroma et SentenceTransformers.
 
+Créez deux dossiers : le premier nommé "source_documents", contenant tous les fichiers nécessaires, et le deuxième nommé "models", contenant le modèle téléchargé depuis Hugging Face (https://huggingface.co/eachadea/ggml-vicuna-13b-1.1/blob/main/ggml-vic13b-q5_1.bin).
+
 
 Configuration de l'environnement
  

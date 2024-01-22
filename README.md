@@ -115,18 +115,18 @@ Téléchargez le programme d'installation MinGW à partir du Site Web de MinGW.
 Exécutez le programme d'installation et sélectionnez le gcc composant.
 
 
+![chatbot_1](https://github.com/Amelghz/internship2023-FinansyaChatbot/assets/92169711/cde1863e-2e58-43f6-b116-b48cd69c96d1)
 
-![chatbot_1](https://github.com/Amelghz/internship2023-chatbot/assets/92169711/83f5cfa2-a030-4d73-b05d-06dac318ec74)
-
-![chatbot_2](https://github.com/Amelghz/internship2023-chatbot/assets/92169711/e5ca8dc1-c334-4da9-aeaa-6ded0013318e)
-
-![chatbot_3png](https://github.com/Amelghz/internship2023-chatbot/assets/92169711/e05d887e-2a14-4d07-a6e2-766c137e2933)
+![chatbot_2](https://github.com/Amelghz/internship2023-FinansyaChatbot/assets/92169711/b1470bd3-f647-43fb-bc16-bfa075f95802)
 
 
-![chatbot_4](https://github.com/Amelghz/internship2023-chatbot/assets/92169711/53851b36-04f5-42f3-97fa-0f7420c31258)
+![chatbot_3png](https://github.com/Amelghz/internship2023-FinansyaChatbot/assets/92169711/57c919f7-32f4-46c7-b8bd-6cdf96886df7)
 
 
-![chatbot_5](https://github.com/Amelghz/internship2023-chatbot/assets/92169711/79f031cb-998d-45fa-a1f8-7b7ef62d4d51)
+![chatbot_4](https://github.com/Amelghz/internship2023-FinansyaChatbot/assets/92169711/8c951444-1d89-4334-a02f-fc0a023f8baf)
+
+
+![chatbot_5](https://github.com/Amelghz/internship2023-FinansyaChatbot/assets/92169711/e71ebc2a-53a4-46e9-abd3-7dabfa8fa858)
 
 
 
